@@ -1,9 +1,9 @@
 <?php
-  $title = "Login";
+  $title = "Register";
   require_once 'partials/top_html.php';
 ?>
 
-  <div>login content</div>
+  <div>write new post</div>
 
 <?php
   require_once 'partials/bottom_html.php';
