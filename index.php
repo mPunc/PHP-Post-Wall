@@ -4,14 +4,12 @@
   $_SESSION['currentSite'] = "home";
   require_once 'partials/top_html.php';
 ?>
-<?php
-  if(isset($_SESSION["role"]))
-  echo '
+<?php if (isset($_SESSION["logged_in"])): ?>
   <h2 class="mb-3">
-    You are logged in as ' . $_SESSION["role"] . '
+    You are logged in as <?= htmlspecialchars($_SESSION["role"]) ?>
   </h2>
-  ';
-?>
+<?php endif; ?>
+
 
   <div class="card mb-3 bg-light">
     <div class="card-body">

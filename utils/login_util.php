@@ -24,6 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         #if everything's ok:
         $_SESSION["username"] = $user["username"];
         $_SESSION["role"] = $user["role"];
+        $_SESSION["profile_created_at"] = $user["created_at"];
+        $_SESSION["logged_in"] = "yes";
         #add avatar path or something
       }
       else {

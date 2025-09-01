@@ -3,6 +3,10 @@
   $title = "Login";
   $_SESSION['currentSite'] = "login";
   require_once 'partials/top_html.php';
+  if (isset($_SESSION["logged_in"])) {
+    header("Location: index.php");
+    exit;
+  }
 ?>
 
   <h2>Login</h2>

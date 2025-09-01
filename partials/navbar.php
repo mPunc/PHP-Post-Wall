@@ -12,14 +12,12 @@
   <?php require 'nav_list.php'; ?>
 </nav>
 
-<div class="d-md-none">
-  <div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
-    <div class="offcanvas-header">
-      <h5 class="offcanvas-title text-light" id="mobileSidebarLabel"><?= $helloText ?? "Post Wall" ?></h5>
-      <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <?php require 'nav_list.php'; ?>
-    </div>
+<div class="offcanvas offcanvas-start bg-dark" tabindex="-1" id="mobileSidebar" aria-labelledby="mobileSidebarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title text-light" id="mobileSidebarLabel"><?= $helloText ?? "Post Wall" ?></h5>
+    <button type="button" class="btn-close text-reset btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <?php require 'nav_list.php'; ?>
   </div>
 </div>
