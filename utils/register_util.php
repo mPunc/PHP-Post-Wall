@@ -30,9 +30,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     #maybe insta login, change later
     header("Location: ../index.php");
+    exit;
   }
 }
 else {
   header("Location: ../error.php");
+  exit;
 }
 ?>

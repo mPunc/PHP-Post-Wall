@@ -8,6 +8,7 @@
 
   if ($connection->connect_error) {
     header("Location: error.php");
-    die();
+    $_SESSION["error_message"] = "Database connection error.";
+    exit;
   }
 ?>
