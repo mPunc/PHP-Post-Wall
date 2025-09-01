@@ -1,5 +1,7 @@
 <?php
+  session_start();
   $title = "Post Wall";
+  $_SESSION['currentSite'] = "home";
   require_once 'partials/top_html.php';
 ?>
 

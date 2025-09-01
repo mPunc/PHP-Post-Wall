@@ -1,5 +1,7 @@
 <?php
+  session_start();
   $title = "Register";
+  $_SESSION['currentSite'] = "newPost";
   require_once 'partials/top_html.php';
 ?>
 

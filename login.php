@@ -1,5 +1,7 @@
 <?php
+  session_start();
   $title = "Login";
+  $_SESSION['currentSite'] = "login";
   require_once 'partials/top_html.php';
 ?>
 

@@ -17,10 +17,5 @@
           <button class="btn btn-outline-dark d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar" aria-controls="mobileSidebar" aria-label="Open menu">
             <span class="navbar-toggler-icon" style="display:inline-block; width:1.2rem; height:1.2rem; background-image: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 30 30%22><path stroke=%22rgba(0,0,0,0.7)%22 stroke-width=%223%22 stroke-linecap=%22round%22 d=%22M4 7h22M4 15h22M4 23h22%22/></svg>'); background-repeat:no-repeat;"></span>
           </button>
-
-          <div>
-            <h1 class="h4 mb-0">Welcome to your Post Wall</h1>
-            <small class="text-muted">This is where the posts will appear.</small>
-          </div>
         </div>
         <section>
