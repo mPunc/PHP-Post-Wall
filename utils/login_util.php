@@ -1,14 +1,15 @@
 <?php
 session_start();
+if (isset($_SESSION["logged_in"])) {
+  header("Location: index.php");
+  exit;
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["username"], $_POST["password"])) {
     require_once "db_connection.php";
 
     $username = htmlentities(trim($_POST["username"]));
-    $password = htmlentities($_POST["password"]);
-    $_POST = [];
-
-    $encryptedPassword = password_hash($password, PASSWORD_DEFAULT);
+    $password = $_POST["password"];
 
     $query = "SELECT * FROM users WHERE username = ?";
     $prepare_query = $connection->prepare($query);
@@ -33,16 +34,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         # bad password
         $_SESSION["error_message"] = "Invalid password.";
         $connection->close();
-        header("Location: ../error.php");
+        header("Location: ../login.php");
         exit;
       }
     }
     else {
-      # send an error message or something, you gotta unset it somewhere
-      # bad username
       $_SESSION["error_message"] = "Invalid username or user doesn't exist.";
       $connection->close();
-      header("Location: ../error.php");
+      header("Location: ../login.php");
       exit;
     }
     $connection->close();
@@ -52,7 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   exit;
 }
 else {
-  header("Location: ../error.php");
+  $_SESSION["error_message"] = "Critical error, try again. :(";
+  header("Location: ../login.php");
   exit;
 }
 ?>

@@ -34,9 +34,19 @@
   </div>
 </div>
 
-<h3>My latest posts</h3>
+<h3>My posts:</h3>
 
-<div>multiple divs</div>
+<?php
+  require_once "utils/posts_util.php";
+  require_once "utils/db_connection.php";
+
+  $posts = getAllPosts($connection, $_SESSION["user_id"]);
+  $connection->close();
+
+  foreach ($posts as $post) {
+    include "partials/post_card.php";
+  }
+?>
 
 <?php
   require_once 'partials/bottom_html.php';
