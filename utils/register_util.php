@@ -3,7 +3,6 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["username"], $_POST["password"], $_POST["password_repeat"], $_POST["role"])) {
     require_once "db_connection.php";
-
     
     $username = htmlentities(trim($_POST["username"]));
     $password = htmlentities($_POST["password"]);
@@ -27,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prepare_query->close();
 
     $connection->close();
-
-    #maybe insta login, change later
-    header("Location: ../index.php");
-    exit;
   }
+
+  #maybe insta login, change later
+  header("Location: ../index.php");
+  exit;
 }
 else {
   header("Location: ../error.php");
