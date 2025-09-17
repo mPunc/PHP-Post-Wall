@@ -7,13 +7,21 @@
     </div>
 
     <?php if(isset($_SESSION["logged_in"]) && $post['user_id'] == $_SESSION["user_id"]): ?>
-    <form action="utils/delete_from_card.php" method="POST">
-      <input type="hidden" name="id" value="<?= htmlspecialchars($post['id']) ?>">
-      <input type="hidden" name="user_id" value="<?= htmlspecialchars($post['user_id']) ?>">
-      <button type="submit" class="btn-close" 
-        onclick="return confirm('Are you sure you want to delete this post?');"
-        aria-label="Delete post"></button>
-    </form>
+      <div class="d-flex flex-row align-items-center gap-2">
+        <form action="edit_post.php" method="POST">
+          <input type="hidden" name="id" value="<?= htmlspecialchars($post['id']) ?>">
+          <input type="hidden" name="user_id" value="<?= htmlspecialchars($post['user_id']) ?>">
+          <button type="submit" class="btn btn-dark" 
+            aria-label="Edit post">EDIT</button>
+        </form>
+        <form action="utils/from_card_delete.php" method="POST">
+          <input type="hidden" name="id" value="<?= htmlspecialchars($post['id']) ?>">
+          <input type="hidden" name="user_id" value="<?= htmlspecialchars($post['user_id']) ?>">
+          <button type="submit" class="btn-close" 
+            onclick="return confirm('Are you sure you want to delete this post?');"
+            aria-label="Delete post"></button>
+        </form>
+      </div>
     <?php endif; ?>
 
   </div>

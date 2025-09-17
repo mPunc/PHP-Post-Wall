@@ -9,7 +9,7 @@ function getAllPosts($connection, $userFilter = null) {
     $sql .= " WHERE u.id =" . intval($userFilter);
   }
 
-  $sql .= " ORDER BY p.created_at DESC";
+  $sql .= " ORDER BY p.updated_at DESC";
   $result = $connection->query($sql);
 
   return $result ? $result->fetch_all(MYSQLI_ASSOC) : [];

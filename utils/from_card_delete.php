@@ -16,10 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prepare_query = $connection->prepare($query);
     $prepare_query->bind_param("i", $id);
     $prepare_query->execute();
+    $connection->close();
     header("Location: ../my_profile.php");
     exit;
   }
-  
+  $connection->close();
   header("Location: ../index.php");
   exit;
 }
