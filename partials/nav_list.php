@@ -15,6 +15,17 @@
   </li>
   <?php endif; ?>
 
+  <?php if (isset($_SESSION["logged_in"]) && $_SESSION["role"] == "admin"): ?>
+  <li class="nav-item mb-1">
+    <a class="nav-link text-light <?php if (isset($_SESSION['currentSite']) && $_SESSION['currentSite'] == 'adminUsers') echo'border border-2 rounded-4'; ?> "
+    href="admin_users.php">Manage users</a>
+  </li>
+  <li class="nav-item mb-1">
+    <a class="nav-link text-light <?php if (isset($_SESSION['currentSite']) && $_SESSION['currentSite'] == 'adminPosts') echo'border border-2 rounded-4'; ?> "
+    href="admin_posts.php">Manage posts</a>
+  </li>
+  <?php endif; ?>
+
   <?php if (isset($_SESSION["logged_in"])): ?>
   <li class="nav-item mb-1">
     <a class="nav-link text-light <?php if (isset($_SESSION['currentSite']) && $_SESSION['currentSite'] == 'myProfile') echo'border border-2 rounded-4'; ?> "
