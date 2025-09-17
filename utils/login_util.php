@@ -1,14 +1,14 @@
 <?php
 session_start();
 if (isset($_SESSION["logged_in"])) {
-  header("Location: index.php");
+  header("Location: ../index.php");
   exit;
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["username"], $_POST["password"])) {
     require_once "db_connection.php";
 
-    $username = htmlentities(trim($_POST["username"]));
+    $username = trim($_POST["username"]);
     $password = $_POST["password"];
 
     $query = "SELECT * FROM users WHERE username = ?";
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 else {
   $_SESSION["error_message"] = "Critical error, try again. :(";
-  header("Location: ../login.php");
+  header("Location: ../error.php");
   exit;
 }
 ?>

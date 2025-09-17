@@ -1,14 +1,14 @@
 <?php
 session_start();
 if (isset($_SESSION["logged_in"])) {
-  header("Location: index.php");
+  header("Location: ../index.php");
   exit;
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   if (isset($_POST["username"], $_POST["password"], $_POST["password_repeat"], $_POST["role"])) {
     require_once "db_connection.php";
     
-    $username = htmlentities(trim($_POST["username"]));
+    $username = trim($_POST["username"]);
     $password = $_POST["password"];
     $repeatPassword = $_POST["password_repeat"];
     $role = $_POST["role"];

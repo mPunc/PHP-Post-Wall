@@ -1,6 +1,10 @@
 <?php
 session_start();
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["avatar_upload"])) {
+if (!isset($_SESSION["logged_in"])) {
+  header("Location: ../index.php");
+  exit;
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["avatar_upload"])) {
   require_once "db_connection.php";
 
   $uploadDir = "../avatars/";
@@ -21,14 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["avatar_upload"])) {
     else {
       $_SESSION["error_message"] = "Internal error while storing file. :(";
       $connection->close();
-      header("Location: ../error.php");
+      header("Location: ../my_profile.php");
       exit;
     }
   }
   else {
-    $_SESSION["error_message"] = "Bad file type or file too large. (Please upload .jpg, .jpeg or .png)";
+    $_SESSION["error_message"] = "Bad file type or file too large. (Please upload .jpg, .jpeg or .png, less than 2 MB)";
     $connection->close();
-    header("Location: ../error.php");
+    header("Location: ../my_profile.php");
     exit;
   }
 
@@ -36,5 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["avatar_upload"])) {
   header("Location: ../my_profile.php");
   exit;
 }
-
+else {
+  $_SESSION["error_message"] = "Critical error, try again. :(";
+  header("Location: ../error.php");
+  exit;
+}
 ?>

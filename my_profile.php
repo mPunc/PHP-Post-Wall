@@ -25,6 +25,15 @@
         <p class="card-text"><small class="text-muted">Joined: <?= htmlspecialchars($_SESSION["profile_created_at"]) ?></small></p>
       </div>
     </div>
+    <?php if (isset($_SESSION["error_message"])): ?>
+    <div class="alert alert-danger alert-dismissible fade show mt-0 col-12" role="alert">
+      <?= htmlspecialchars($_SESSION["error_message"]) ?>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php
+      unset($_SESSION["error_message"]);
+      endif;
+    ?>
     <form action="utils/upload_avatar.php" method="post" enctype="multipart/form-data">
       <div class="d-flex flex-row flex-wrap justify-content-start col-10 mx-auto gap-2 mb-3 mt-3">
         <input type="file" name="avatar_upload" class="form-control" accept="image/*" required>

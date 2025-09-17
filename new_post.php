@@ -39,6 +39,16 @@
         <input class="form-control" type="file" id="image" name="image" accept="image/*">
       </div>
 
+      <?php if (isset($_SESSION["error_message"])): ?>
+      <div class="alert alert-danger alert-dismissible fade show mt-0 col-12" role="alert">
+        <?= htmlspecialchars($_SESSION["error_message"]) ?>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <?php
+        unset($_SESSION["error_message"]);
+        endif;
+      ?>
+
       <button type="submit" class="btn btn-success">Publish</button>
     </div>
   </form>
