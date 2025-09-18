@@ -1,7 +1,7 @@
 <?php
   session_start();
-  $title = "New post";
-  $_SESSION['currentSite'] = "newPost";
+  $title = "Edit post";
+  $_SESSION['currentSite'] = "";
   require_once 'partials/top_html.php';
   if (!isset($_SESSION["logged_in"]) || $_SERVER["REQUEST_METHOD"] != "POST") {
     header("Location: index.php");
@@ -20,6 +20,7 @@
     $prepare_query->bind_param("i", $id);
     $prepare_query->execute();
     $post = $prepare_query->get_result()->fetch_assoc();
+    $connection->close();
   }
   else {
     header("Location: index.php");

@@ -11,7 +11,7 @@
   require_once "utils/db_connection.php";
   $sql = "SELECT p.id, p.title, p.comment_count, p.created_at, p.updated_at, u.username FROM posts p
           JOIN users u ON p.user_id = u.id
-          ORDER BY p.created_at DESC";
+          ORDER BY p.updated_at DESC";
   $posts = $connection->query($sql)->fetch_all(MYSQLI_ASSOC);
 ?>
 
